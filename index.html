@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Snowfall</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: #1a1a2e;
+        overflow: hidden;
+        position: relative;
+        image-rendering: pixelated;
+      }
+
+      .ground {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 80px;
+        background: repeating-linear-gradient(
+          45deg,
+          #cccccc,
+          #cccccc 8px,
+          #bbbbbb 8px,
+          #bbbbbb 16px
+        );
+        border-top: 4px solid #999;
+      }
+
+      .tree {
+        position: absolute;
+        bottom: 80px;
+        left: 20%;
+        width: 32px;
+        height: 64px;
+        background: #5b3b1a;
+        image-rendering: pixelated;
+      }
+
+      .tree::before {
+        content: "";
+        position: absolute;
+        bottom: 32px;
+        left: -32px;
+        width: 96px;
+        height: 64px;
+        background: #1e7f3f;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      .snowflake {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        image-rendering: pixelated;
+        opacity: 0.9;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(110vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tree"></div>
+    <div class="ground"></div>
+
+    <div
+      class="snowflake"
+      style="left: 10%; animation-duration: 6s; animation-delay: 0s"
+    ></div>
+    <div
+      class="snowflake"
+      style="left: 25%; animation-duration: 8s; animation-delay: 1s"
+    ></div>
+    <div
+      class="snowflake"
+      style="left: 40%; animation-duration: 7s; animation-delay: 2s"
+    ></div>
+    <div
+      class="snowflake"
+      style="left: 55%; animation-duration: 9s; animation-delay: 0.5s"
+    ></div>
+    <div
+      class="snowflake"
+      style="left: 70%; animation-duration: 10s; animation-delay: 3s"
+    ></div>
+    <div
+      class="snowflake"
+      style="left: 85%; animation-duration: 6.5s; animation-delay: 1.5s"
+    ></div>
+  </body>
+</html>
